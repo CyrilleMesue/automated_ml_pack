@@ -1,9 +1,19 @@
 # AutomatedMLPack
 ## _A Comprehensive Package for Automated Machine Learning_
-[![scikit-learn](https://github.com/CyrilleMesue/archives/blob/main/images/mlpack.png?raw=true)](https://scikit-learn.org/stable/)
+[![scikit-learn](https://github.com/CyrilleMesue/archives/blob/main/images/mlpack.png?raw=true)](https://pypi.org/project/automated-ml-pack/)
 
 **Project Overview:**
-This package is designed for swift and automated machine learning practice, catering to both classification and regression tasks. It facilitates model training, grid search application, and the preservation of the best model. Furthermore, it stores and visualizes the best scores attained by other models using commonly employed evaluation metrics.
+This package is designed for swift and automated machine learning practice, catering to both classification and regression tasks. It facilitates model training, grid search application, and the preservation of the best model. Furthermore, it stores and visualizes the best scores attained by other models using commonly employed evaluation metrics.    
+
+
+What you will get:  
+- training regression and classification models
+- - regression models:
+- - classification models
+- Parameter Tunning Using Gridsearchcv
+- Feature Engineering Using Feature-Engine Package
+- Feature Selection: Recursive Feature Elimination (classification), Recursive Feature Addition (classification) and SelectKBest (regression)
+- Visualization of Scores
 
 
 ## Installation
@@ -33,6 +43,9 @@ run_train_pipeline --input_file heart.csv --target_column HeartDisease --trainin
 ```
 
 This script will take some time to run. The outputs will be stored in the provided output directory.       
+
+[![scikit-learn](https://github.com/CyrilleMesue/archives/blob/main/images/mlpackoutputs.png?raw=true)]
+[![scikit-learn](https://github.com/CyrilleMesue/archives/blob/main/images/cross_val_report_bar.png?raw=true)]
 
 
 ```USAGE```:     
