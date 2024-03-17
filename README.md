@@ -34,39 +34,36 @@ run_train_pipeline --input_file heart.csv --target_column HeartDisease --trainin
 
 This script will take some time to run. The outputs will be stored in the provided output directory.       
 
-```here```hey
 
-
-```
-usage: run_train_pipeline -[INPUT_FILE] [options]
+```**usage**```: run_train_pipeline -[INPUT_FILE] [options]
 
 This tool facilitates the training of multiple machine learning models, optimizes the models, and saves the trained models. It also conducts model evaluation using diverse methods. Furthermore, the tool is capable of handling both regression and classification tasks. Additional options are described below.
 
-options:
--h, --help            show this help message and exit
---input_file INPUT_FILE
+**options:**
+```-h```, ```--help```            show this help message and exit
+```--input_file``` INPUT_FILE
                      Path to the input data in CSV/TSV format.
---input_type {csv,tsv}
+```--input_type``` {csv,tsv}
                      Type of input file format (csv or tsv)
---training_type {clf,reg}
+```--training_type``` {clf,reg}
                      Type of training (e.g., "classification", "regression")
---target_column TARGET_COLUMN
+```--target_column``` TARGET_COLUMN
                      Name of the target column in the input dataframe
---engineer_new_features
+```--engineer_new_features```
                      Flag to perform engineering of new features or not.
---output_base OUTPUT_BASE
+```--output_base``` OUTPUT_BASE
                      Base Name for most output files.
---test_size TEST_SIZE
+```--test_size``` TEST_SIZE
                      What fraction of the dataset should be used for testing. Normally, cross validation is performed on the other percentage of the data to access the model' generalization.
---standard_scaling    Whether or not to apply scikit-learn standard scaler on the data.
---feature_selection   Whether or not to perform feature selection on the dataset.
---feature_selection_method {addition,elimination}
+```--standard_scaling```    Whether or not to apply scikit-learn standard scaler on the data.
+```--feature_selection```   Whether or not to perform feature selection on the dataset.
+```--feature_selection_method``` {addition,elimination}
                      Specify between recursive feature addition and recursive feature elimination algorithms for classification. By default, recursive feature addition is applied. For regression tasks, SelectKBest is used for feature selection.
---selectkbest_num_features SELECTKBEST_NUM_FEATURES
+```--selectkbest_num_features``` SELECTKBEST_NUM_FEATURES
                      Number of top features to select. For regression only.
---output_dir OUTPUT_DIR
+```--output_dir``` OUTPUT_DIR
                      Custom Name of Output Folder.
---return_data         Select to include raw data, training data and test data in the output folders.
+```--return_data```         Select to include raw data, training data and test data in the output folders.
 ```
 
 ## License
