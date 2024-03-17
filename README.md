@@ -34,9 +34,9 @@ run_train_pipeline --input_file heart.csv --target_column HeartDisease --trainin
 
 This script will take some time to run. The outputs will be stored in the provided output directory.       
 
-```code
-here
-```
+```here```hey
+
+
 ```
 usage: run_train_pipeline -[INPUT_FILE] [options]
 
