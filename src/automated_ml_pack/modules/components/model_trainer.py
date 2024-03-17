@@ -15,10 +15,10 @@ from xgboost import XGBRegressor, XGBClassifier
 from sklearn.svm import SVC
 from sklearn.neural_network import MLPClassifier
 
-from modules.exception import CustomException
-from modules.logger import logging
+from automated_ml_pack.modules.exception import CustomException
+from automated_ml_pack.modules.logger import logging
 
-from modules.utils import save_object,evaluate_models, load_json, save_json
+from automated_ml_pack.modules.utils import save_object,getparams,evaluate_models, load_json, save_json
 
 @dataclass
 class ModelTrainerConfig:
@@ -73,7 +73,7 @@ class ModelTrainer:
                     "MLPClassifier": MLPClassifier(random_state = 32, verbose=False),
                     "SVC": SVC(random_state = 32)
                 }
-            load_params = load_json("artifacts/params.json")
+            load_params = getparams()
             params = load_params["model_params"][self.modeling_type]
 
             logging.info("Training and Evaluating Models!")

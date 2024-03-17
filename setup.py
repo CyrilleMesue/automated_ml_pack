@@ -18,16 +18,32 @@ def get_requirements(file_path) -> List[str]:
     return requirements
 
 
+with open("README.md", "r") as f:
+    long_description = f.read()
 
 
 setup(
-name = "automatic_ml_pack",
+name = "automated_ml_pack",
 version= "0.0.1",
 author="Cyrille",
 author_email="cyrillemesue@gmail.com",
 description='This package is designed for swift and automated machine learning practice, catering to both classification and regression tasks. It facilitates model training, grid search application, and the preservation of the best model. Furthermore, it stores and visualizes the best scores attained by other models using commonly employed evaluation metrics.',
-packages =  find_packages(),
+package_dir={"": "src"},
+packages=find_packages('src'),
+long_description=long_description,
+long_description_content_type="text/markdown",
+url="https://github.com/ArjanCodes/2023-package",
 install_requires=get_requirements("requirements.txt"),
-python_requires='>=3.11'
-
+python_requires='>=3.11',
+license="MIT",
+classifiers=[
+"License :: OSI Approved :: MIT License",
+"Programming Language :: Python :: 3.11",
+"Operating System :: OS Independent",
+],
+entry_points={
+        'console_scripts': [
+            'run_train_pipeline = automated_ml_pack.train_pipeline:main',
+        ],
+    }
 )

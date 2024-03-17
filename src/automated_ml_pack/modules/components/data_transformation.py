@@ -19,10 +19,10 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder,StandardScaler, LabelEncoder
 
-from modules.exception import CustomException
-from modules.logger import logging
+from automated_ml_pack.modules.exception import CustomException
+from automated_ml_pack.modules.logger import logging
 
-from modules.utils import save_object, save_json
+from automated_ml_pack.modules.utils import save_object, save_json
 
 @dataclass
 class DataTransformationConfig:

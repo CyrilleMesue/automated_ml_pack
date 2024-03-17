@@ -1,5 +1,5 @@
 import sys
-from modules.logger import logging
+from automated_ml_pack.modules.logger import logging
 
 def error_message_detail(error,error_detail:sys):
     _,_,exc_tb=error_detail.exc_info()

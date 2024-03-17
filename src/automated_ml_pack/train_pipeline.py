@@ -7,14 +7,13 @@ from sklearn.metrics import classification_report
 import warnings
 warnings.filterwarnings("ignore")
 
-sys.path.insert(0, os.path.abspath("."))
-from modules.logger import logging
-from modules.exception import CustomException
+from automated_ml_pack.modules.logger import logging
+from automated_ml_pack.modules.exception import CustomException
 
-from modules.components.data_transformation import DataTransformation
-from modules.components.data_ingestion import DataIngestion
-from modules.components.model_trainer import ModelTrainer
-from modules.utils import load_object, VisualizeResults
+from automated_ml_pack.modules.components.data_transformation import DataTransformation
+from automated_ml_pack.modules.components.data_ingestion import DataIngestion
+from automated_ml_pack.modules.components.model_trainer import ModelTrainer
+from automated_ml_pack.modules.utils import load_object, VisualizeResults
 
 def main():
     # Parse command-line arguments
