@@ -33,7 +33,8 @@ run_train_pipeline --input_file heart.csv --target_column HeartDisease --trainin
 ```
 
 This script will take some time to run. The outputs will be stored in the provided output directory.       
- 
+
+```
 usage: run_train_pipeline -[INPUT_FILE] [options]
 
 This tool facilitates the training of multiple machine learning models, optimizes the models, and saves the trained models. It also conducts model evaluation using diverse methods. Furthermore, the tool is capable of handling both regression and classification tasks. Additional options are described below.
@@ -63,6 +64,7 @@ options:
   --output_dir OUTPUT_DIR
                         Custom Name of Output Folder.
   --return_data         Select to include raw data, training data and test data in the output folders.
+```
 
 ## License
 MIT
