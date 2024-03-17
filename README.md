@@ -7,10 +7,10 @@ This package is designed for swift and automated machine learning practice, cate
 
 
 What you will get:  
-- training regression and classification models
-- - regression models:
-- - classification models
-- Parameter Tunning Using Gridsearchcv
+- Training regression and classification models
+- - regression models: RandomForestRegressor, DecisionTreeRegressor, GradientBoostingRegressor, LinearRegression, XGBRegressor,CatBoostRegressor,AdaBoostRegressor
+- - classification models: RandomForestClassifier, DecisionTreeClassifier, GradientBoostingClassifier, LogisticRegression, XGBClassifier, CatBoostClassifier, AdaBoostClassifier, MLPClassifier, SVC
+- Parameter Tunning Using GridsearchCV
 - Feature Engineering Using Feature-Engine Package
 - Feature Selection: Recursive Feature Elimination (classification), Recursive Feature Addition (classification) and SelectKBest (regression)
 - Visualization of Scores
@@ -34,19 +34,8 @@ Install AutomatedMLPack Package
 pip install automated-ml-pack
 ```
 
-## Tutorials
 
-The data must be in csv or tsv format and the user must provide the column name that contains the targets. The following is an example of how the tool can be used for classification tasks.       
-
-```sh
-run_train_pipeline --input_file heart.csv --target_column HeartDisease --training_type clf --test_size 0.2 --feature_selection --feature_selection_method addition --output_dir heart_disease_classification
-```
-
-This script will take some time to run. The outputs will be stored in the provided output directory.       
-
-[![scikit-learn](https://github.com/CyrilleMesue/archives/blob/main/images/mlpackoutputs.png?raw=true)]
-[![scikit-learn](https://github.com/CyrilleMesue/archives/blob/main/images/cross_val_report_bar.png?raw=true)]
-
+## CommandLine Options
 
 ```USAGE```:     
 run_train_pipeline -[INPUT_FILE] [options]
@@ -78,6 +67,19 @@ This tool facilitates the training of multiple machine learning models, optimize
 ```--output_dir``` OUTPUT_DIR
                      Custom Name of Output Folder.
 ```--return_data```         Select to include raw data, training data and test data in the output folders.    
+
+## Tutorials
+
+The data must be in csv or tsv format and the user must provide the column name that contains the targets. The following is an example of how the tool can be used for classification tasks.       
+
+```sh
+run_train_pipeline --input_file heart.csv --target_column HeartDisease --training_type clf --test_size 0.2 --feature_selection --feature_selection_method addition --output_dir heart_disease_classification
+```
+
+This script will take some time to run. The outputs will be stored in the provided output directory.       
+
+![outputs](https://github.com/CyrilleMesue/archives/blob/main/images/mlpackoutputs.png?raw=true)
+![cross-validation-score](https://github.com/CyrilleMesue/archives/blob/main/images/cross_val_report_bar.png?raw=true)
 
 
 ## License
