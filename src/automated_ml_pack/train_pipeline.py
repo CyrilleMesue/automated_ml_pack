@@ -27,7 +27,7 @@ def main():
     parser.add_argument('--engineer_new_features', default=False, action="store_true",help='Flag to perform engineering of new features or not.')
     parser.add_argument('--output_base', type=str, default="", help='Base Name for most output files.')
     parser.add_argument('--test_size', type=float, default=0.2, help='What fraction of the dataset should be used for testing. Normally, cross validation is performed on the other percentage of the data to access the model\' generalization.')
-    parser.add_argument('--standard_scaling', default = True, action="store_true", help='Whether or not to apply scikit-learn standard scaler on the data.')
+    parser.add_argument('--no_standard_scaling', default = False, action="store_true", help='Whether or not to apply scikit-learn standard scaler on the data.')
     parser.add_argument('--feature_selection', default=False, action="store_true",help='Whether or not to perform feature selection on the dataset.')
     parser.add_argument('--feature_selection_method', type=str, default = "addition", choices = ["addition", "elimination"], help='Specify between recursive feature addition and recursive feature elimination algorithms for classification. By default, recursive feature addition is applied. For regression tasks, SelectKBest is used for feature selection.')
     parser.add_argument('--selectkbest_num_features', type=int, default = 32, help='Number of top features to select. For regression only.')
@@ -82,7 +82,7 @@ def main():
         training_type = args.training_type
         output_base = args.output_base
         test_size = args.test_size
-        standard_scaling = args.standard_scaling
+        standard_scaling = not args.no_standard_scaling
         feature_selection = args.feature_selection
         selectkbest_num_features = args.selectkbest_num_features
         output_dir = args.output_dir
