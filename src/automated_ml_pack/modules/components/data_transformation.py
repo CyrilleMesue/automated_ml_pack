@@ -142,7 +142,7 @@ class DataTransformation:
             preprocessor_pipeline = Pipeline(
                 steps = [
                     ("preprocessor", preprocessor),
-                    ("feature_selection", None)
+                    ("feature_selection", feature_selector)
                 ]
             )
 
@@ -173,7 +173,7 @@ class DataTransformation:
                 f"Applying preprocessing object on training dataframe and testing dataframe."
             )
 
-            input_feature_train_arr=preprocessing_obj.fit_transform(input_feature_train_df)
+            input_feature_train_arr=preprocessing_obj.fit_transform(input_feature_train_df, target_feature_train_df)
             selected_columns = list(input_feature_train_arr.columns)
             input_feature_test_arr=preprocessing_obj.transform(input_feature_test_df)
             
