@@ -18,6 +18,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder,StandardScaler, LabelEncoder
+from sklearn.preprocessing import OrdinalEncoder
 
 from automated_ml_pack.modules.exception import CustomException
 from automated_ml_pack.modules.logger import logging
@@ -76,6 +77,11 @@ class DataTransformation:
         
         '''
         try:
+            # set categorical encoder
+            if self.feature_selection:
+                categorical_encoder = OrdinalEncoder()
+            else:
+                categorical_encoder = OneHotEncoder(sparse_output=False)
 
             # set feature creation configurations
             if self.engineer_new_features:
@@ -125,7 +131,7 @@ class DataTransformation:
 
                 steps=[
                 ("imputer",SimpleImputer(strategy="most_frequent")),
-                ("one_hot_encoder",OneHotEncoder(sparse_output=False)),
+                ("categorical_encoder",categorical_encoder),
                 ("scaler",cat_standard_scaler)
                 ]
 
