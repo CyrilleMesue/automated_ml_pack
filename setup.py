@@ -34,7 +34,7 @@ long_description=long_description,
 long_description_content_type="text/markdown",
 url="https://github.com/CyrilleMesue/automated_ml_pack",
 install_requires=get_requirements("requirements.txt"),
-python_requires='>=3.11',
+python_requires='>=3.9',
 license="MIT",
 classifiers=[
 "License :: OSI Approved :: MIT License",
