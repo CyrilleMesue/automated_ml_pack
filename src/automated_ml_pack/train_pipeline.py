@@ -33,6 +33,7 @@ def main():
     parser.add_argument('--selectkbest_num_features', type=int, default = 32, help='Number of top features to select. For regression only.')
     parser.add_argument('--output_dir', type=str, default = "outputs", help='Custom Name of Output Folder.')
     parser.add_argument('--return_data', default = False, action="store_true", help='Select to include raw data, training data and test data in the output folders.')
+    parser.add_argument('--no_param_finetune', default = False, action="store_true", help='If true, hyperparameter search will not be performed for each model. Otherwise, hyperparameter tunning is performed.')
 
     args = parser.parse_args()
 
@@ -87,6 +88,7 @@ def main():
         selectkbest_num_features = args.selectkbest_num_features
         output_dir = args.output_dir
         return_data = args.return_data
+        param_finetune = not args.no_param_finetune
 
 
     except Exception as e:
@@ -119,7 +121,8 @@ def main():
 
     modeltrainer=ModelTrainer(modeling_type = training_type,
                               output_base = output_base,
-                              output_dir = output_dir
+                              output_dir = output_dir,
+                              param_finetune = param_finetune
                               )
 
     best_model_name, __ = modeltrainer.initiate_model_trainer(train_arr,test_arr)

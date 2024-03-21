@@ -63,10 +63,11 @@ This tool facilitates the training of multiple machine learning models, optimize
 ```--feature_selection_method``` {addition,elimination}   
                      Specify between recursive feature addition and recursive feature elimination algorithms for classification. By default, recursive feature addition is applied. For regression tasks, SelectKBest is used for feature selection.    
 ```--selectkbest_num_features``` SELECTKBEST_NUM_FEATURES
-                     Number of top features to select. For regression only.    
-```--output_dir``` OUTPUT_DIR
-                     Custom Name of Output Folder.
+                     Number of top features to select. For regression only.     
+```--output_dir``` OUTPUT_DIR   
+                     Custom Name of Output Folder.     
 ```--return_data```         Select to include raw data, training data and test data in the output folders.    
+```--no_param_finetune```    If true, hyperparameter search will not be performed for each model. Otherwise, hyperparameter tunning is performed.
 
 ## Tutorials
 

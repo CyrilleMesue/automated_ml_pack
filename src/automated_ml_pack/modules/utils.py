@@ -30,7 +30,7 @@ def save_object(file_path, obj):
     except Exception as e:
         raise CustomException(e, sys)
 
-def evaluate_models(X_train, y_train,X_test,y_test,models,param, modeling_type = "reg"):
+def evaluate_models(X_train, y_train,X_test,y_test,models,param, modeling_type = "reg", param_finetune = True):
     try:
         report = {}
 
@@ -44,13 +44,14 @@ def evaluate_models(X_train, y_train,X_test,y_test,models,param, modeling_type =
         for i in tqdm(range(len(list(models)))):
             model = list(models.values())[i]
             
-            para=param[list(models.keys())[i]]
+            if param_finetune:
+                para=param[list(models.keys())[i]]
 
-            gs = GridSearchCV(model,para,cv=kfold, scoring = scoring)
-            gs.fit(X_train,y_train)
+                gs = GridSearchCV(model,para,cv=kfold, scoring = scoring)
+                gs.fit(X_train,y_train)
+                model_best_params = gs.best_params_
+                model.set_params(**model_best_params)
 
-            model_best_params = gs.best_params_
-            model.set_params(**model_best_params)
             model.fit(X_train,y_train)
 
             #get cross validation and test report
