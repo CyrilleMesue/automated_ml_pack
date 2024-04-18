@@ -30,7 +30,7 @@ def save_object(file_path, obj):
     except Exception as e:
         raise CustomException(e, sys)
 
-def evaluate_models(X_train, y_train,X_test,y_test,models,param, modeling_type = "reg", param_finetune = True):
+def evaluate_models(X_train, y_train,X_test,y_test,models,param, modeling_type = "reg", param_finetune = True, finetune_fraction = 1.0):
     try:
         report = {}
 
@@ -44,11 +44,20 @@ def evaluate_models(X_train, y_train,X_test,y_test,models,param, modeling_type =
         for i in tqdm(range(len(list(models)))):
             model = list(models.values())[i]
             
+            print(finetune_fraction)
             if param_finetune:
+                print(finetune_fraction)
+                n_samples = int(finetune_fraction * 100)
+                X_train_cv = pd.DataFrame(X_train).sample(n_samples, random_state = 32).values
+                y_train_cv = pd.DataFrame(y_train).sample(n_samples, random_state = 32).values
+                print(X_train_cv.shape)
+
+
+
                 para=param[list(models.keys())[i]]
 
                 gs = GridSearchCV(model,para,cv=kfold, scoring = scoring)
-                gs.fit(X_train,y_train)
+                gs.fit(X_train_cv,y_train_cv)
                 model_best_params = gs.best_params_
                 model.set_params(**model_best_params)
 

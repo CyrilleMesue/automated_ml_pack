@@ -31,7 +31,8 @@ class ModelTrainer:
                  modeling_type = "reg",
                  output_base:str = "",
                  output_dir:str="outputs",
-                 param_finetune:bool = True
+                 param_finetune:bool = True,
+                 finetune_fraction:float = 1.0
                  ):
         self.model_trainer_config=ModelTrainerConfig()
         self.basename_tag = self.model_trainer_config.basename_tag
@@ -41,6 +42,7 @@ class ModelTrainer:
         self.modeling_type = modeling_type
         self.output_dir = output_dir
         self.param_finetune = param_finetune
+        self.finetune_fraction = finetune_fraction
 
 
     def initiate_model_trainer(self,train_array,test_array):
@@ -87,7 +89,8 @@ class ModelTrainer:
                                               models=models,
                                               param=params,
                                               modeling_type = self.modeling_type,
-                                              param_finetune = self.param_finetune
+                                              param_finetune = self.param_finetune,
+                                              finetune_fraction = self.finetune_fraction
                                               )
             
             ## To get best model score from dict

@@ -34,6 +34,9 @@ def main():
     parser.add_argument('--output_dir', type=str, default = "outputs", help='Custom Name of Output Folder.')
     parser.add_argument('--return_data', default = False, action="store_true", help='Select to include raw data, training data and test data in the output folders.')
     parser.add_argument('--no_param_finetune', default = False, action="store_true", help='If true, hyperparameter search will not be performed for each model. Otherwise, hyperparameter tunning is performed.')
+    parser.add_argument('--finetune_fraction', default = 1.0, help='Percentage of data used for fine tunning.')
+
+
 
     args = parser.parse_args()
 
@@ -89,6 +92,7 @@ def main():
         output_dir = args.output_dir
         return_data = args.return_data
         param_finetune = not args.no_param_finetune
+        finetune_fraction = args.finetune_fraction
 
 
     except Exception as e:
@@ -122,7 +126,8 @@ def main():
     modeltrainer=ModelTrainer(modeling_type = training_type,
                               output_base = output_base,
                               output_dir = output_dir,
-                              param_finetune = param_finetune
+                              param_finetune = param_finetune,
+                              finetune_fraction = finetune_fraction
                               )
 
     best_model_name, __ = modeltrainer.initiate_model_trainer(train_arr,test_arr)

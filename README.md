@@ -34,8 +34,34 @@ Install AutomatedMLPack Package
 pip install automated-ml-pack
 ```
 
+## Usage:
+### As a Library
+```python
+from automated_ml_pack.modules.run_train_pipeline import run_train_pipeline
 
-## CommandLine Options
+if __name__ == '__main__':
+    data_path = "/data.csv"
+    target_column_name = "asthma_type"
+    # run the training pipeline
+    run_train_pipeline(input_file = data_path,  
+                       target_column = target_column_name,
+                       input_type = "csv",
+                       training_type = "clf",
+                       engineer_new_features=False,
+                       output_base="",
+                       test_size=0.2, 
+                       no_standard_scaling=False,
+                       feature_selection=False, 
+                       feature_selection_method="addition",
+                       selectkbest_num_features=32, 
+                       output_dir="outputs",
+                       verbose = True,
+                       no_param_finetune = False,
+                       finetune_fraction = 1.0
+                      )
+```
+
+### Command Line Interface
 
 ```USAGE```:     
 run_train_pipeline -[INPUT_FILE] [options]
@@ -68,6 +94,7 @@ This tool facilitates the training of multiple machine learning models, optimize
                      Custom Name of Output Folder.     
 ```--return_data```         Select to include raw data, training data and test data in the output folders.    
 ```--no_param_finetune```    If true, hyperparameter search will not be performed for each model. Otherwise, hyperparameter tunning is performed.
+```--finetune_fraction```    Percentage of data used for fine tunning.
 
 ## Tutorials
 

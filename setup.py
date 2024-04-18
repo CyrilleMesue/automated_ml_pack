@@ -24,7 +24,7 @@ with open("README.md", "r") as f:
 
 setup(
 name = "automated_ml_pack",
-version= "1.0.5",
+version= "1.0.7",
 author="Cyrille",
 author_email="cyrillemesue@gmail.com",
 description='This package is designed for swift and automated machine learning practice, catering to both classification and regression tasks. It facilitates model training, grid search application, and the preservation of the best model. Furthermore, it stores and visualizes the best scores attained by other models using commonly employed evaluation metrics.',
